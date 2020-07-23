@@ -22,12 +22,12 @@ with webdriver.Chrome() as driver:
     gmail_sign_in(driver)
 
     delbtnshow = WebDriverWait(driver, 60).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, 'ytd-comment-history-entry-renderer .yt-icon-button[aria-label="Action menu"]'))
+        EC.presence_of_element_located((By.CSS_SELECTOR, 'ytd-comment-history-entry-renderer:not([is-dismissed]) .yt-icon-button[aria-label="Action menu"]'))
     )
 
     while delbtnshow:
         delbtnshow = WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, 'ytd-comment-history-entry-renderer .yt-icon-button[aria-label="Action menu"]'))
+            EC.presence_of_element_located((By.CSS_SELECTOR, 'ytd-comment-history-entry-renderer:not([is-dismissed]) .yt-icon-button[aria-label="Action menu"]'))
         )
 
         print(delbtnshow)
